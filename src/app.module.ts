@@ -7,8 +7,11 @@ import { CategoryModule } from './category/category.module';
 import { SubcategoryModule } from './subcategory/subcategory.module';
 import { UserModule } from './user/user.module';
 import { CompanyModule } from './company/company.module';
+import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [
+    
+    ConfigModule.forRoot({ isGlobal: true }),
       TypeOrmModule.forRoot({
         type: 'postgres',
         host: process.env.DB_HOST,
